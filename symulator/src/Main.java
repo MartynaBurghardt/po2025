@@ -3,7 +3,7 @@ package symulator;
 public class Main {
     public static void main(String[] args) {
 
-        Silnik silnik = new Silnik("Toyota", "VVT-i", 6500);
+        Silnik silnik = new Silnik("Toyota", "XX", 6500);
         SkrzyniaBiegow skrzynia = new SkrzyniaBiegow("Aisin", "Automat", 6);
         Sprzeglo sprzeglo = new Sprzeglo("Valeo", "Standard");
         Samochod samochod = new Samochod(silnik, skrzynia, sprzeglo);

@@ -9,35 +9,26 @@ public class Silnik extends Komponent {
         this.maxObroty = maxObroty;
         this.obroty = 0;
     }
-
-
     public void wlacz() {
         uruchom();
     }
-
     public void wylacz() {
         zatrzymaj();
     }
-
-
     public void uruchom() {
         obroty = 800;
         System.out.println("Silnik " + getProducent() + " " + getModel() + " uruchomiony. Obroty: " + obroty);
     }
-
     public void zatrzymaj() {
         obroty = 0;
         System.out.println("Silnik zatrzymany.");
     }
-
     public int getObroty() {
         return obroty;
     }
-
     public int getMaxObroty() {
         return maxObroty;
     }
-
     @Override
     public String toString() {
         return "Silnik{" +
