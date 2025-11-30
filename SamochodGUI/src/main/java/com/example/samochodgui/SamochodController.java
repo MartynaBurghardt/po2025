@@ -11,17 +11,16 @@ import java.util.List;
 
 public class SamochodController {
 
-    // Przyciski i ComboBox
     @FXML private Button dodajNowyButton;
     @FXML private Button usunButton;
     @FXML private Button wlaczButton;
     @FXML private Button wylaczButton;
     @FXML private Button zwiekszBiegButton;
     @FXML private Button zmniejszBiegButton;
+    @FXML private Button przyciskButton;
 
     @FXML private ComboBox<String> samochodComboBox;
 
-    // Pola tekstowe
     @FXML private TextField modelTextField;
     @FXML private TextField nrRejestracyjnyTextField;
     @FXML private TextField wagaTextField;
@@ -29,7 +28,6 @@ public class SamochodController {
     @FXML private TextField biegTextField;
     @FXML private TextField stanSilnikaTextField;
 
-    // Lista samochodów
     private List<Samochod> samochody = new ArrayList<>();
     private Samochod aktualnySamochod;
 
@@ -37,17 +35,14 @@ public class SamochodController {
     public void initialize() {
         System.out.println("Kontroler został załadowany!");
 
-        // Dodaj przykładowe samochody
         samochody.add(new Samochod("Toyota", "ABC123", 1200, 0));
         samochody.add(new Samochod("BMW", "XYZ789", 1500, 0));
         samochody.add(new Samochod("Range Rover", "RR2025", 2200, 0));
 
-        // Wypełnij ComboBox
         samochodComboBox.setItems(FXCollections.observableArrayList(
                 samochody.stream().map(Samochod::getModel).toList()
         ));
 
-        // Obsługa wyboru samochodu
         samochodComboBox.setOnAction(event -> {
             int index = samochodComboBox.getSelectionModel().getSelectedIndex();
             if (index >= 0) {
@@ -57,7 +52,32 @@ public class SamochodController {
         });
     }
 
-    // Obsługa przycisków
+    @FXML
+    private void onDodajNowyClick() {
+        System.out.println("Dodawanie nowego samochodu...");
+
+        Samochod nowy = new Samochod("Nowy", "000000", 1000, 0);
+        samochody.add(nowy);
+
+        samochodComboBox.getItems().add(nowy.getModel());
+    }
+
+    @FXML
+    private void onUsunClick() {
+        System.out.println("Usuwanie samochodu...");
+
+        int index = samochodComboBox.getSelectionModel().getSelectedIndex();
+        if (index >= 0) {
+            samochody.remove(index);
+            samochodComboBox.getItems().remove(index);
+        }
+    }
+
+    @FXML
+    private void onPrzyciskClick() {
+        System.out.println("Kliknięto dodatkowy przycisk!");
+    }
+
     @FXML
     private void onWlaczClick() {
         if (aktualnySamochod != null) {
@@ -90,7 +110,6 @@ public class SamochodController {
         }
     }
 
-    // Aktualizacja pól tekstowych w GUI
     private void aktualizujPola() {
         modelTextField.setText(aktualnySamochod.getModel());
         nrRejestracyjnyTextField.setText(aktualnySamochod.getNrRejestracyjny());
@@ -100,7 +119,6 @@ public class SamochodController {
         stanSilnikaTextField.setText(aktualnySamochod.isSilnikWlaczony() ? "ON" : "OFF");
     }
 
-    // Klasa wewnętrzna symulująca samochód
     private static class Samochod {
         private String model;
         private String nrRejestracyjny;
@@ -120,8 +138,8 @@ public class SamochodController {
 
         public void wlacz() { silnikWlaczony = true; }
         public void wylacz() { silnikWlaczony = false; predkosc = 0; bieg = 0; }
-        public void zwiekszBieg() { if(bieg<6) bieg++; }
-        public void zmniejszBieg() { if(bieg>0) bieg--; }
+        public void zwiekszBieg() { if (bieg < 6) bieg++; }
+        public void zmniejszBieg() { if (bieg > 0) bieg--; }
 
         public String getModel() { return model; }
         public String getNrRejestracyjny() { return nrRejestracyjny; }
