@@ -38,22 +38,22 @@
 
                             <children>
                                 <Label text="Model"/>
-                                <TextField fx:id="modelTextField" GridPane.columnIndex="1"/>
+                                <TextField fx:id="modelTextField" GridPane.columnIndex="1" editable="false"/>
 
                                 <Label text="Nr rejestracyjny" GridPane.rowIndex="1"/>
-                                <TextField fx:id="nrRejestracyjnyTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <TextField fx:id="nrRejestracyjnyTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" editable="false"/>
 
                                 <Label text="Waga" GridPane.rowIndex="2"/>
-                                <TextField fx:id="wagaTextField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField fx:id="wagaTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" editable="false"/>
 
                                 <Label text="Prędkość" GridPane.rowIndex="3"/>
-                                <TextField fx:id="predkoscTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <TextField fx:id="predkoscTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" editable="false"/>
 
                                 <Label text="Bieg" GridPane.rowIndex="4"/>
-                                <TextField fx:id="biegTextField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                                <TextField fx:id="biegTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" editable="false"/>
 
                                 <Label text="Silnik" GridPane.rowIndex="5"/>
-                                <TextField fx:id="stanSilnikaTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                                <TextField fx:id="stanSilnikaTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" editable="false"/>
                             </children>
                         </GridPane>
 
